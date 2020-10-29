@@ -1,0 +1,17 @@
+filename = ('/Users/Raffles Teh weihan/Downloads/New folder/EBOOK.txt')
+def avrg():
+    with open (filename, 'r') as x:
+        txt = x.read().replace("\n"," ")
+        count = 0
+        count2 = 0
+        count = len(txt)
+        ntxt = ""
+        for i in txt:
+            ntxt += i
+        txt = ntxt
+        txtsplit = txt.split(" ")
+        for count2 in txtsplit:
+            count2 += 1
+        averg = count / count2
+        print("The average word length of text file", filename, "is", averg)
+avrg()
