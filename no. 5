@@ -1,0 +1,24 @@
+import string
+filename = ('/Users/Raffles Teh weihan/Downloads/New folder/EBOOK.txt')
+def hapaxes() :
+    with open (filename, 'r') as a :
+        text = a.read().lower().replace('\n', "")
+        newtext = ""
+        for f in text :
+            if f not in string.punctuation :
+                newtext += f
+        text = newtext
+        txtsplit = text.split(" ")
+        d = {}
+        for f in txtsplit:
+            if f not in d:
+                d[f] = 1
+            else:
+                d[f] += 1
+        n = []
+        for i in d:
+            if d[i] == 1:
+                n.append(i)
+        print('hapex found in text:')
+        for w in n:
+            print(w)
