@@ -1,0 +1,65 @@
+eren = {
+  "name": "Eren",
+  "homework": [90.0,97.0,75.0,92.0],
+  "quizzes": [88.0,40.0,94.0],
+  "tests": [75.0,90.0]
+}
+mikasa = {
+ "name": "Mikasa",
+ "homework": [100.0, 92.0, 98.0, 100.0],
+ "quizzes": [82.0, 83.0, 91.0],
+ "tests": [89.0, 97.0]
+}
+
+armin = {
+"name": "Armin",
+"homework": [0.0, 87.0, 75.0, 22.0],
+"quizzes": [0.0, 75.0, 78.0],
+"tests": [100.0, 100.0]
+}
+students = [eren, mikasa, armin]
+def average(a):
+    total = sum(a)
+    float(total) 
+    result = total/ len(a)
+    return result
+for x in students:
+    for y in x:
+        print("{}: {}".format(y, x[y]))
+    print("Homework avrg:", average(x["homework"]))
+    print("Quizzes avrg:", average(x["quizzes"]))
+    print("Tests avrg:", average(x["tests"]))
+HW_weight = {"HW" : [average(eren["homework"]), average(mikasa["homework"]), average(armin["homework"])]}
+print("sum of homework weighted average:", sum(HW_weight["HW"]) * .1)
+quiz_weight = {"quiz" : [average(eren["quizzes"]), average(mikasa["quizzes"]), average(armin["quizzes"])]}
+print("sum of quizzes weighted average:", sum(quiz_weight["quiz"]) * .3)   
+test_weight = {"test" : [average(eren["tests"]), average(mikasa["tests"]), average(armin["tests"])]}
+print("sum of tests weighted average:", sum(test_weight["test"]) * .6)
+def get_letter_grade(s):
+    if s >= 90:
+        return "A"
+    elif s >= 80:
+        return "B"
+    elif s >= 70:
+        return "C"
+    elif s >= 60:
+        return "D"
+    else:
+        return "F"
+def get_average(z):
+    homework = average(z["homework"])
+    quizzes = average(z["quizzes"])
+    tests = average(z["tests"])
+    homework *= .1
+    quizzes *= .3
+    tests *= .6
+    return homework + quizzes + tests
+print("Letter grade:", get_letter_grade(int(get_average(eren))))
+print("Letter grade:", get_letter_grade(int(get_average(mikasa))))
+print("Letter grade:", get_letter_grade(int(get_average(armin))))
+def class_average(c):
+    score = []
+    for b in c:
+        score.append(get_average(students))
+        return b(score)
+print("Class average:", (int(class_average(students))))
