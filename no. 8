@@ -1,0 +1,26 @@
+pokemon = 'audino bagon baltoy banette bidoof braviary bronzor carracosta charmeleon cresselia croagunk darmanitan deino emboar emolga exeggcute gabite girafarig gulpin haxorus heatmor heatran ivysaur jellicent jumpluff kangaskhan kricketune landorus ledyba loudred lumineon lunatone machamp magnezone mamoswine nosepass petilil pidgeotto pikachu pinsir poliwrath poochyena porygon2 porygonz registeel relicanth remoraid rufflet sableye scolipede scrafty seaking sealeo silcoon simisear snivy snorlax spoink starly tirtouga trapinch treecko tyrogue vigoroth vulpix wailord wartortle whismur wingull yamask'
+pokelist = pokemon.split(" ")
+pokedict = {}
+for n in pokelist:
+    if n[0] not in pokedict:
+        pokedict[n[0]] = [n]
+    else:
+        pokedict[n[0]].append(n)
+longest_count = 0
+longest_chain = []
+iterations = 0
+def longest_name(chain):
+    global longest_count
+    global longest_chain
+    global iterations
+    iterations += 1
+    if len(chain) > longest_count:
+        longest_count = len(chain)
+        longest_chain = chain
+    if chain[-1][-1] in pokedict:
+        for name in pokedict[chain[-1][-1]]:
+            if name not in chain:
+                longest_name(chain + [name])
+for names in pokelist:
+    longest_name([n])
+print("{} num of pokemons: {}".format(longest_chain, longest_count))
