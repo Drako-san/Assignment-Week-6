@@ -1,0 +1,12 @@
+filename = ('/Users/Raffles Teh weihan/Downloads/New folder/EBOOK.txt')
+def textfile ():
+    with open(filename, 'r') as x:
+        a = x.read()
+        b = a.split("\n")
+        c = open(filename, 'w')
+        y = 0
+        while y < len(b):
+            b[y] = str(y) + " " + b[y] + "\n"
+            c.write(b[y])
+            y += 1
+textfile()
